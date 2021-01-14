@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding>Your Past Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let eachOrder of unique_Order" (click)="onClickOrder(eachOrder)">
+    <ion-card-header>
+      <ion-card-subtitle>Order ID:{{eachOrder.id}}</ion-card-subtitle>
+      <ion-card-title>Restaurant Name:{{eachOrder.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Bill:{{eachOrder.bill}}<br /> -->
+      Date:{{eachOrder.date}}
+
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

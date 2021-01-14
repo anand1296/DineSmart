@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding>
+      <ion-icon name="restaurant"></ion-icon>
+      Ratings and Reviews
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="userLoginApi.getIsloggedIn() && onClickSubmit" padding style="border: 2px solid">
+    <ion-item>
+      <ion-label color="primary" stacked>
+        <ion-icon name="contact"></ion-icon>
+        {{userLoginApi.getName()}}
+      </ion-label>
+      <ion-icon name="star" color="warning"></ion-icon>
+      <ion-icon name="arrow-down" color="danger" (click)="rateDown()"></ion-icon>
+
+      <h1>{{inputRating}}/5</h1>
+      <ion-icon name="arrow-up" color="success" (click)="rateUp()"></ion-icon>
+
+    </ion-item>
+
+    <ion-textarea type="text" placeholder="Type your review here" [(ngModel)]="newReviewData.restReview"></ion-textarea>
+
+    <ion-button expand="block" (click)="submitReview()" shape="round">Submit</ion-button>
+  </div>
+
+  <ion-list *ngFor="let reviewInfo of reviewData" no-padding>
+    <ion-item>
+      <ion-label padding>
+        <h1 text-wrap>
+          <ion-icon name="contact"></ion-icon>
+          {{reviewInfo.CName}}
+          <!-- <ion-icon name="create" *ngIf="thisUser" (click)="reEdit()"></ion-icon> -->
+        </h1>
+
+        <p>"{{reviewInfo.RReview}}"</p>
+      </ion-label>
+
+      <span slot="end">
+        <ion-icon name="star" color="warning"></ion-icon>
+        {{reviewInfo.RRating}}/5
+
+        &nbsp;
+      </span>
+
+    </ion-item>
+
+  </ion-list>
+</ion-content>

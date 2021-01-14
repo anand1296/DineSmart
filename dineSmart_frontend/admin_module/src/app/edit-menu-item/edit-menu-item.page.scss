@@ -1,0 +1,44 @@
+
+ion-header {
+    
+
+    ion-title{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        font-style: italic;
+        font-weight: bold;
+        background-color: lightgrey;
+    }
+
+}
+
+ion-label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    
+}
+
+ion-textarea{
+    border: solid 1px black;
+    font-size: 2.2vh;
+    
+}
+
+ion-input{
+    border: solid 1px black;
+    font-size: 2.0vh;
+    //width: 10px !important;
+ 
+}
+
+
+
+img{
+    // height: 60px; 
+    // width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 150px;
+}

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-title padding>
+        {{rName}}:&nbsp;Edit Item
+      </ion-title>
+
+      <ion-button color="primary" fill="solid" shape="round" slot="start" (click)="goToHome()">
+          <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+  
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item style="align-content:center">
+      <ion-icon name="create"></ion-icon>
+      <img src="../../{{itemImageAddress}}" padding>
+  </ion-item>
+
+  <ion-item padding>
+      <ion-label text-wrap>
+          Name: &nbsp;&nbsp;
+      </ion-label>
+    <ion-textarea  type="text" placeholder="{{itemName}}" wrap="soft" [(ngModel)]="itemName">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Type: </ion-label>
+      <ion-select placeholder="Select " [(ngModel)]="menuItemType">
+        <ion-select-option value="Soups" >Soups</ion-select-option>
+        <ion-select-option value="Salads">Salads</ion-select-option>
+        <ion-select-option value="Quick Bites">Quick Bites</ion-select-option>
+        <ion-select-option value="Starters">Starters</ion-select-option>
+        <ion-select-option value="Main Course">Main Course</ion-select-option>
+        <ion-select-option value="Beverages">Beverages</ion-select-option>
+        <ion-select-option value="Dessert">Dessert</ion-select-option>
+        <ion-select-option value="Others">Dessert</ion-select-option>
+      </ion-select>
+  </ion-item>
+
+
+  <ion-item padding>
+      <ion-label text-wrap>
+          Ingredients: &nbsp;&nbsp;
+      </ion-label>
+      <ion-textarea  type="text" placeholder="{{itemIngredients}}" wrap="soft" [(ngModel)]="itemIngredients">
+      </ion-textarea>
+  </ion-item>
+
+  <ion-item padding>
+      <ion-label text-wrap>
+          Price: &nbsp;&nbsp;
+      </ion-label>
+      &#8377;&nbsp;
+      <ion-input type="number" placeholder="{{itemPrice}}" wrap="soft" [(ngModel)]="itemPrice">
+      </ion-input>&nbsp;/-
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
+  </ion-item>
+
+  <ion-item >
+    <ion-label>Chef's Special:</ion-label>&nbsp;
+    <ion-checkbox slot="start" [(ngModel)]="isChefsSpecial"></ion-checkbox>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer >
+    <ion-toolbar>
+        <!-- <ion-button expand="block" (click)="deleteItem()" shape="round" color="danger">Delete Item</ion-button> -->
+        <ion-button expand="block" (click)="saveChanges()" shape="round" color="success">Save Changes</ion-button>
+        
+     </ion-toolbar>
+    
+  </ion-footer>
+

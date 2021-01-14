@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title padding color="success">
+        CART
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+
+    <ion-item padding>
+      <ion-avatar class="avatars" >
+        <img src="../../assets/user/greenTick.png">
+      </ion-avatar>
+    </ion-item>
+
+    <ion-item>
+        <ion-label style="text-align: center; font-style: italic; font-weight: bold; text-transform: uppercase;" color="primary">
+          {{userName}}
+        </ion-label>
+    </ion-item>
+
+    <ion-item>
+        <ion-label style="text-align: center; font-weight: bold; text-transform: uppercase;" color="success">
+          Transaction ID: #{{transactionId}}
+        </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="text-align: center;">
+        Thank you for dining at
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="resraurant"></ion-icon>
+        <ion-label style="text-align: center; font-weight: bold; text-transform: uppercase; font-style: italic; font-size: 30px;">
+          {{rest_name}}
+        </ion-label>
+      </ion-item>
+
+    <ion-item>
+      <ion-label style="font-weight: bold; font-style: italic; font-family: Verdana, Geneva, Tahoma, sans-serif;" color="secondary">
+        Do visit us again!
+      </ion-label>
+    </ion-item>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-button expand="full" color="warning" shape="round" (click)=signOut()>
+                <ion-icon slot="start" name="card"></ion-icon>
+                Sign Out
+              
+            </ion-button>
+          </ion-col>
+          <ion-col col-6>
+              <ion-button expand="full" color="primary" shape="round" (click)=gotoHome()>
+                  <ion-icon slot="start" name="navigate"></ion-icon>
+                  Go to Home
+                
+              </ion-button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+</ion-content>

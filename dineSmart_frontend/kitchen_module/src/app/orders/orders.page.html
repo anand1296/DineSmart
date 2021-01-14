@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-card>
+  <ion-toolbar>
+    <ion-card-title>ORDERS</ion-card-title>
+  </ion-toolbar>
+</ion-card>
+</ion-header>
+
+<ion-content>
+ <ion-card style="height:10%;" (click)="pending()" *ngFor = "let eachRest of reviewData">
+   PENDING ORDERS
+   &nbsp;
+   <ion-badge color="danger" style="font-size: 130%">{{eachRest.cnt}}  </ion-badge>
+
+ </ion-card> 
+ <ion-card style="height:10%;"(click)="prepared()" *ngFor = "let eachRest of prepData">
+    PREPARING ORDERS
+    &nbsp;
+   <ion-badge color="danger" style="font-size: 130%">{{eachRest.cnt}}  </ion-badge>
+  </ion-card> 
+  <ion-card style="height:10%;" (click)="ready()" *ngFor = "let eachRest of readData">
+      READY ORDERS
+      &nbsp;
+   <ion-badge color="danger" style="font-size: 130%">{{eachRest.cnt}}  </ion-badge>
+  </ion-card> 
+  <ion-card style="height:10%;" (click)="home()">
+      SERVED ORDERS
+    </ion-card> 
+</ion-content>

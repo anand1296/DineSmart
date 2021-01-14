@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <h2>
+            Item
+          </h2>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <h2>
+            Quantity
+          </h2>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <h2>
+           Price
+          </h2>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let eachOrder of currentOrder">
+      <ion-col>
+        <div>
+          <h3>
+          {{ eachOrder.Name}}
+          </h3>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <h3>
+          {{eachOrder.qty}}
+          </h3>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <h3>
+          {{eachOrder.price}}
+          </h3>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item>
+    <h1>
+      Total : {{total}}
+    </h1>
+  </ion-item>
+
+
+
+</ion-content>
+
+<ion-footer>
+    <ion-label color="primary" >
+      <h1 padding>
+        Payment methods
+        <ion-icon name="bookmark"></ion-icon>
+      </h1>
+    </ion-label>
+    
+      <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-button expand="full" color="tertiary" shape="round">
+                  <ion-icon slot="start" name="card"></ion-icon>
+                  Card payment
+                
+              </ion-button>
+            </ion-col>
+            <ion-col col-6>
+                <ion-button expand="full" color="tertiary" shape="round">
+                    <ion-icon slot="start" name="navigate"></ion-icon>
+                    UPI
+                  
+                </ion-button>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+    
+      <ion-button expand="full" shape="round" color="warning" (click)="walletPayment()">
+          <ion-icon slot="start" name="wallet"></ion-icon>
+          Use App Wallet
+      </ion-button>
+      <ion-button expand="full" shape="round" color="success">
+          <ion-icon slot="start" name="cash"></ion-icon>
+          Cash Payment
+      </ion-button>
+
+</ion-footer>

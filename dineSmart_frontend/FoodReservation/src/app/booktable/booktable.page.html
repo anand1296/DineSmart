@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="RestaurantData">{{ name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item [hidden]="!!myDate">
+      <ion-label>Date</ion-label>
+      <ion-datetime (ngModelChange)="change(datePicker)" displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"
+        min="{{this.today}}" max="{{this.futDate}}"></ion-datetime>
+    </ion-item>
+    <ion-item [hidden]="!myDate">
+      <ion-label>Time</ion-label>
+      <ion-datetime #datePicker (ionCancel)="myDate=undefined" displayFormat="hh A" [(ngModel)]="myTime">
+      </ion-datetime>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="isChartLoaded">
+    <ngx-charts-tree-map [scheme]="colorScheme" [results]="single" (select)="onSelect($event)">
+    </ngx-charts-tree-map>
+  </ion-card>
+</ion-content>

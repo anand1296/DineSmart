@@ -1,0 +1,56 @@
+<ion-header padding style="text-align: center">
+  Order ID: {{passed_id}}
+</ion-header>
+
+<ion-content>
+  <ion-card padding style="margin-top: 50px;">
+    <ion-grid>
+      <ion-row padding>
+        <ion-col>
+          <div style="font-weight: bold">
+            Item
+          </div>
+        </ion-col>
+        <ion-col>
+          <div style="font-weight: bold">
+            Quantity
+          </div>
+        </ion-col>
+        <ion-col>
+          <div style="font-weight: bold">
+            Price
+          </div>
+        </ion-col>
+        <ion-col>
+          <div style="font-weight: bold">
+            Total
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let eachOrder of unique_Order" padding>
+        <ion-col>
+          <div>
+            {{ eachOrder.name}}
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            {{eachOrder.qty}}
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            {{eachOrder.price}}
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            {{eachOrder.total}}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      <strong padding>Total Bill Amount:{{bill}}</strong>
+    </ion-card>
+
+</ion-content>

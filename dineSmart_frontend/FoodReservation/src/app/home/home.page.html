@@ -1,0 +1,32 @@
+
+<div>
+  <ion-searchbar placeholder="Cuisine/Restaurant" animated="true" [(ngModel)]="searchRest" 
+      (keyup)="searchRests($event)"></ion-searchbar>
+  <div *ngIf="currentDD">
+    <ion-item  *ngFor="let eachItem of currentDD" (click)="redirectToRestuarant(eachItem)">
+      <ion-label>
+        {{ eachItem.name }}
+      </ion-label>
+    </ion-item>
+  </div>
+ 
+</div>
+
+
+<ion-content >
+  <div scrollx=true direction="x">
+    <ion-col class="fixed">
+      <ion-card  *ngFor = "let eachRest of allRestaurantData" (click)="onClickRestaurant(eachRest)">
+          <ion-card-title padding>{{eachRest.RName}} 
+              <ion-text color="dark">
+                  <h5> <ion-icon name="star"></ion-icon>{{eachRest.RRating}}/5   </h5>
+                </ion-text> </ion-card-title>
+         
+          <ion-img src="../../{{eachRest.RImgAddress}}"></ion-img>
+      </ion-card>
+    </ion-col>
+  </div>
+</ion-content>
+
+
+

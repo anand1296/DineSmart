@@ -1,0 +1,30 @@
+ion-header {
+    
+
+    ion-title{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        font-style: italic;
+        font-weight: bold;
+        //background-image: linear-gradient(to right,red, yellow);
+        background-color: lightgray;
+    
+    }
+}
+
+
+ion-label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    //text-align: center;
+    font-style: italic;
+    font-weight: bold;
+
+    h1{
+        background-color: lightgrey;
+        text-align: center;
+    }
+}
+
+h2{
+    text-decoration: underline;
+}

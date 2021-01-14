@@ -1,0 +1,43 @@
+ion-header {
+    
+
+    ion-title{
+            
+      
+            
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            //text-align: center;
+            font-style: italic;
+            font-weight: bold;
+            // font-size: 25px;
+            background-color: lightgrey;
+            // background-image: linear-gradient(to right,red, yellow);
+            text-align: center;
+
+        
+    }
+}
+
+ion-item{
+
+    //height: 50px;
+    
+    ion-textarea{
+        //text-align: center;
+        //size: 20px;
+        border: solid 1px black;
+        font-size: 2.2vh;
+        //height: 10px;
+        
+    }
+    ion-label{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+            //text-align: center;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 20px;
+    }
+    ion-img{
+        
+    }
+}

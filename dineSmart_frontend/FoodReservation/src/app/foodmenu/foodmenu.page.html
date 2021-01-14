@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="food_data" padding>
+      {{ food_data[0].RName }} Food Menu
+    </ion-title>
+    <ion-title *ngIf="food_data" padding>
+      Total Cost - &#8377;{{ total }}
+    </ion-title>
+    <ion-item >
+      <ion-button >
+        Set Budget
+      </ion-button>
+      &#8377;&nbsp;
+      <ion-input type="number" max-length="4" wrap="soft" [(ngModel)]="userBudget" style="border:solid 1px black; border-radius: 10px; ">
+      </ion-input>
+      <ion-label color="danger" *ngIf="total > userBudget" slot="end" style="margin-left:50px">
+        Budget Exceeded!
+      </ion-label>
+      <ion-label color="success" slot="end" *ngIf="total <= userBudget" style="margin-left:60px">
+        In Budget!
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content>
+
+    <ion-item>
+        <ion-toggle [(ngModel)]="veg" color="success" slot="start"></ion-toggle>
+        <ion-label color="success">Veg</ion-label>
+    </ion-item>
+    
+  <div class="menuList" *ngFor="let type of itemTypes; let j = index">
+    <ion-title padding>
+      <ion-icon name="return-right"></ion-icon>
+      {{type}}
+      <ion-icon name="arrow-dropright" size="medium" (click)="onClickArrowDropRight(j)" *ngIf="!arrowClicked[j]">
+      </ion-icon>
+      <ion-icon name="arrow-dropdown" size="medium" (click)="onClickArrowDropDown(j)" *ngIf="arrowClicked[j]">
+      </ion-icon>
+    </ion-title>
+
+    <div *ngIf="!veg">
+      <ion-list *ngFor="let eachRest of food_data; let i = index" no-padding>
+        <ion-item *ngIf="eachRest.Type == type && arrowClicked[j]">
+          <img src="../../assets/icon/veg_icon.png" *ngIf="!eachRest.nonVeg"  style="height:15px; width:15px; margin-bottom: 40px;" no-padding>
+          <img src="../../assets/icon/non-veg_icon.png" *ngIf="eachRest.nonVeg"  style="height:15px; width:15px; margin-bottom: 40px;" no-padding>
+          <img src="../../{{eachRest.FImageAddress}}" style="height: 50px; width: 80px" />
+          <ion-label padding (click)="itemDetails(i)">
+            <h2 text-wrap>{{ eachRest.Name }}</h2>
+            <p>
+              {{eachRest.Ingredients}}
+              
+            </p>
+          </ion-label>
+          <ion-icon name="remove" color="danger" (click)="removeItem(eachRest.ItemID)"></ion-icon>
+          &nbsp;
+          {{ displayQty(eachRest.ItemID) }}
+          &nbsp;
+          <ion-icon name="add" color="success" (click)="addItem(eachRest.ItemID)"></ion-icon>
+          <span slot="end">&#8377; {{ eachRest.Rate }}/- &nbsp; </span>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="veg">
+        <ion-list *ngFor="let eachRest of food_data; let i = index" no-padding>
+          <ion-item *ngIf="eachRest.Type == type && arrowClicked[j] && !eachRest.nonVeg">
+            <img src="../../assets/icon/veg_icon.png" *ngIf="!eachRest.nonVeg"  style="height:15px; width:15px; margin-bottom: 40px;" no-padding>
+            <img src="../../assets/icon/non-veg_icon.png" *ngIf="eachRest.nonVeg"  style="height:15px; width:15px; margin-bottom: 40px;" no-padding>
+            <img src="../../{{eachRest.FImageAddress}}" style="height: 50px; width: 80px" />
+            <ion-label padding (click)="itemDetails(i)">
+              <h2 text-wrap>{{ eachRest.Name }}</h2>
+              <p>
+                {{eachRest.Ingredients}}
+                
+              </p>
+            </ion-label>
+            <ion-icon name="remove" color="danger" (click)="removeItem(eachRest.ItemID)"></ion-icon>
+            &nbsp;
+            {{ displayQty(eachRest.ItemID) }}
+            &nbsp;
+            <ion-icon name="add" color="success" (click)="addItem(eachRest.ItemID)"></ion-icon>
+            <span slot="end">&#8377; {{ eachRest.Rate }}/- &nbsp; </span>
+          </ion-item>
+        </ion-list>
+      </div>
+
+  </div>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="order()">
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>
