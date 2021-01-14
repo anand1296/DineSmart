@@ -1,0 +1,53 @@
+ion-slides {
+    background-color: lightgrey;
+    resize: 30%;
+
+    img {
+        height: 150px;
+        width: 300px;
+    }
+}
+
+h1 {
+    font-family: fantasy;
+    //background: #141414;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+ion-header {
+    
+
+    ion-title{
+            
+      
+            
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            //text-align: center;
+            font-style: italic;
+            font-weight: bold;
+            background-color: lightgrey;
+            // background-image: linear-gradient(to right,red, yellow);
+            text-align: center;
+
+        
+    }
+}
+
+.ratingBar{
+    
+    ion-item{
+        background-color: lightgrey;
+    }
+
+    span{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        
+    }
+    ion-label{
+        font-style: italic;
+        background-color: lightgrey;
+    }
+}
+

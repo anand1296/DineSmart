@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-card >
+        <ion-toolbar>
+          <ion-card-title >SERVED ORDERS</ion-card-title>
+        </ion-toolbar>
+      </ion-card>
+</ion-header>
+
+<ion-content >
+    <div scrollx=true direction="x">
+      <ion-col class="fixed">
+        <ion-card  *ngFor = "let eachRest of allRestaurantData">
+            <ion-card-title padding>ORDER NO:{{eachRest.OId}} 
+                <ion-text color="dark">
+                    <h5> CUSTOMER ID: {{eachRest.CId}}  </h5>
+                    <h5> ITEM: {{eachRest.Name}}  </h5>
+                    <h5>QUANTITY:  {{eachRest.qty}}  </h5>
+                  </ion-text> </ion-card-title>
+           
+            
+        </ion-card>
+      </ion-col>
+    </div>
+  </ion-content>

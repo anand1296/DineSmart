@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding>User Wallet</ion-title>
+    <ion-label *ngIf="oderId != null" color="primary" slot="end" (click)="gotoWalletPaymentPage()">
+      Go to Payments Page
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="isLoggedIn">
+
+    <ion-item padding>
+      <ion-avatar class="avatars" >
+          <img src="../../assets/user/default.png">
+      </ion-avatar>
+    </ion-item>
+
+    <ion-item>
+        <ion-label style="text-align: center; font-style: italic; font-weight: bold; text-transform: uppercase;" color="primary">
+          {{userName}}
+        </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-title padding style="text-align: center;">
+        Your wallet contains
+        <h1>
+            &#8377;
+          {{walletAmount}}
+        </h1>
+      </ion-title>
+    </ion-item>
+
+    <div *ngIf="!topUpButtonClicked">
+      <ion-button expand="full" shape="round" color="success" (click)="onClickTopUpButton()">
+        <ion-icon slot="start" name="cash"></ion-icon>
+        Top Up Wallet
+      </ion-button>
+    </div>
+
+    <div *ngIf="topUpButtonClicked">
+      <ion-item>
+        <ion-label color="success">
+          Add amount
+        </ion-label>
+        &nbsp;
+        <ion-input type="number" max-length="4" wrap="soft" [(ngModel)]="topUpAmount" style="border:solid 1px black; border-radius: 10px; margin-right: 150px; ">
+        </ion-input>
+      </ion-item>
+
+      <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-button expand="full" color="medium" shape="round">
+                  <ion-icon slot="start" name="card"></ion-icon>
+                  Card payment
+                
+              </ion-button>
+            </ion-col>
+            <ion-col col-6>
+                <ion-button expand="full" color="medium" shape="round">
+                    <ion-icon slot="start" name="navigate"></ion-icon>
+                    UPI
+                  
+                </ion-button>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+
+      <ion-button expand="full" shape="round" color="success" (click)="onClickAddToWallet()">
+          Add to Wallet
+      </ion-button>
+
+    </div>
+
+</ion-content>

@@ -1,0 +1,37 @@
+ion-content {
+    --background: var(--ion-color-light);
+}
+
+.accordion-list{
+    margin-bottom: 4px;
+    --ion-item-background: #fff;
+}
+
+ion-header {
+    
+
+    ion-title{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        font-style: italic;
+        font-weight: bold;
+        background-color: lightgrey;
+    }
+
+}
+
+.menuList{
+    ion-title{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: italic;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-size: 18px;
+        //background-color: lightgray;
+        border: 1.5px solid ;
+        border-radius: 10px;
+    }
+
+    
+}

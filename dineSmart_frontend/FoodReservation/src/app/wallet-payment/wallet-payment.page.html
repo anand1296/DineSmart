@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item padding>
+    <ion-avatar class="avatars">
+      <img src="../../assets/user/wallet.png">
+    </ion-avatar>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title color="primary">
+        <ion-icon name="wallet"></ion-icon>
+        App Wallet
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label slot="start">
+          Amount Payable
+        </ion-label>
+        <ion-label color="primary">
+          &#8377;
+          {{billAmount}}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="start">
+          Privilege Points
+        </ion-label>
+        <ion-label color="primary">
+          &#8377;
+          {{pPoints}}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="start">
+          Final Amount
+        </ion-label>
+        <ion-label color="primary">
+          &#8377;
+          {{pay_amt}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label slot="start">
+          <ion-icon name="wallet"></ion-icon>
+          Wallet Amount
+        </ion-label>
+        <ion-label color="primary">
+          &#8377;
+          {{walletAmount}}
+        </ion-label>
+      </ion-item>
+
+      <div *ngIf="walletAmount >= billAmount">
+        <ion-button expand="full" shape="round" (click)="presentAlertConfirm()" color="success">
+          Make Payment
+        </ion-button>
+        <ion-label>
+          &#8377;
+          {{billAmount}} will be deducted from your wallet!
+        </ion-label>
+      </div>
+
+      <div *ngIf="walletAmount < billAmount">
+        <ion-label color="danger">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          Insufficient amount in wallet!
+        </ion-label>
+        <ion-button expand="full" shape="round" color="warning" (click)="gotoWalletTopUp()">
+          Top Up Wallet
+        </ion-button>
+      </div>
+
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

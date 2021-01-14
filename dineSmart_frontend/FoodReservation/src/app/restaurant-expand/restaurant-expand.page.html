@@ -1,0 +1,113 @@
+<ion-header >
+  <ion-toolbar >
+    
+    <ion-title padding text-wrap>     
+              <ion-icon name="restaurant"></ion-icon>{{name}}
+            <h4 no-padding>{{address}}</h4>   
+    </ion-title>
+    
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- restaurant image, info.,address, horizontal scroll of bestselling food items,
+  clickable reservation and menu buttons -->
+
+<ion-content>
+  <div>
+    <ion-item *ngIf="restOpen">
+      <ion-label slot="start" color="success" (click)="testFunction()" >
+        Now Open
+      </ion-label>
+      <p slot="end">
+        Closes at: {{closingTime}}
+      </p>
+    </ion-item>
+
+    <ion-item *ngIf="!restOpen">
+        <ion-label slot="start" color="success" (click)="testFunction()" >
+          Now Closed
+        </ion-label>
+        <p slot="end">
+          Opens at: {{openingTime}}
+        </p>
+    </ion-item>
+  </div>
+
+  <ion-img *ngIf="RestaurantData" src="../../{{RestaurantData[0].RImgAddress}}"></ion-img>
+
+  <!-- <div class="ratingBar">
+      <h3>
+        &nbsp;
+        <ion-icon name="create" (click)="viewReviews()"></ion-icon>
+        &nbsp;
+          <u (click)="viewReviews()">User Ratings and Reviews:</u> &nbsp; {{rating}}/5
+        <ion-icon name="star" ></ion-icon> 
+      </h3>
+  </div> -->
+
+  <div class="ratingBar">
+    <ion-item (click)="viewReviews()" no-padding>
+      <ion-icon name="create"  color="primary" padding></ion-icon>
+      <ion-label padding>
+        User Ratings and Reviews 
+      </ion-label>
+      <span slot="end">
+        <p>
+          {{rating}}/5
+          <ion-icon name="star" color="warning"></ion-icon> 
+        </p>
+      </span>
+      
+     </ion-item>
+  </div>
+
+
+  <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <ion-button expand="full" color="tertiary" (click)="goToMenu()">
+              <ion-icon slot="start" name="restaurant"></ion-icon>
+              Place Order
+            
+          </ion-button>
+        </ion-col>
+        <ion-col col-6>
+            <ion-button expand="full" color="primary" (click)="booktable()">
+                <ion-icon slot="end" name="wine"></ion-icon>
+                Book a Table
+              
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <div >
+    <h1 padding>Recommended</h1>
+    <ion-slides [options]="sliderOpts">
+      <ion-slide *ngFor="let eachItem of recommendedItems; let i = index">
+        <ion-card >
+          <ion-card-title padding>{{eachItem.Name}}</ion-card-title>
+          <img src="../../{{eachItem.FImageAddress}}" >
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div >
+    <h1 padding>Chef's Special</h1>
+    <ion-slides [options]="sliderOpts">
+      <ion-slide *ngFor="let eachItem of specialItems; let i = index">
+        <ion-card >
+            <ion-card-title padding>{{eachItem.Name}}</ion-card-title>
+          <img src="../../{{eachItem.FImageAddress}}" >
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+
+
+</ion-content>

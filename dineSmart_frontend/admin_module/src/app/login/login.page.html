@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding>
+      Manager's Portal
+    </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+
+<ion-content padding>
+  <div class="loginContent">
+      <ion-note *ngIf="wrongCredentials" color="danger" text-center>
+        <ion-icon name="alert"></ion-icon>&nbsp;&nbsp;Invalid Username/Password
+      </ion-note>
+      <ion-item>
+        <ion-input [(ngModel)]="managerData.r_id"  placeholder="Restaurant ID" position="floating" required padding></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="managerData.r_password" type="password" placeholder="Password" required padding></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="managerLogin()" shape="round">Login</ion-button>
+
+      <ion-item href="./home/xxx.html">
+        <a>Forgot Your Password?</a>
+      </ion-item>
+  </div>
+</ion-content>

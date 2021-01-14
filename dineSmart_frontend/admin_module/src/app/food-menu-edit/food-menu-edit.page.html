@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+    <ion-title padding>
+      {{rName}} Food Menu
+    </ion-title>
+    <ion-button color="primary" fill="solid" shape="round" slot="start" (click)="goToHome()">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+  </ion-item>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+
+    
+    
+  <!-- to add new item to menu -->
+  <div *ngIf="addItemOn" class="addItemClass">
+      <ion-item style="align-content:center" >
+          <ion-icon name="create"></ion-icon>
+          <img src="" style="height: 70px; width: 100px; margin-bottom:30px;" padding>
+      </ion-item>
+    
+      <ion-item >
+          <ion-label text-wrap>
+              Name: &nbsp;&nbsp;
+          </ion-label>
+        <ion-textarea  type="text" placeholder="New menu item" wrap="soft" [(ngModel)]="itemName">
+        </ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Type: </ion-label>
+          <ion-select placeholder="Select " [(ngModel)]="menuItemType" >
+            <ion-select-option value="Soups" >Soups</ion-select-option>
+            <ion-select-option value="Salads">Salads</ion-select-option>
+            <ion-select-option value="Quick Bites">Quick Bites</ion-select-option>
+            <ion-select-option value="Starters">Starters</ion-select-option>
+            <ion-select-option value="Main Course">Main Course</ion-select-option>
+            <ion-select-option value="Beverages">Beverages</ion-select-option>
+            <ion-select-option value="Dessert">Dessert</ion-select-option>
+            <ion-select-option value="Others">Dessert</ion-select-option>
+          </ion-select>
+      </ion-item>
+    
+      <ion-item >
+          <ion-label text-wrap>
+              Ingredients: &nbsp;&nbsp;
+          </ion-label>
+          <ion-textarea  type="text" placeholder="List of Ingredients" wrap="soft" [(ngModel)]="itemIngredients">
+          </ion-textarea>
+      </ion-item>
+    
+      <ion-item >
+          <ion-label text-wrap>
+              Price: &nbsp;&nbsp;
+          </ion-label>
+          &#8377;&nbsp;
+          <ion-input type="number" placeholder="00" wrap="soft" [(ngModel)]="itemPrice">
+          </ion-input>&nbsp;/-
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+      </ion-item>
+    
+      <ion-item >
+        <ion-label>Chef's Special:</ion-label>&nbsp;
+        <ion-checkbox slot="start" [(ngModel)]="isChefsSpecial"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-button (click)="performAddItem()" size="default"> Add </ion-button> 
+        <ion-button  color="medium" (click)="dismissAdd()" size="default">Cancel</ion-button>  
+      </ion-item>
+  </div>
+    
+
+
+  <div >
+    <ion-list *ngFor="let eachItem of menuData; let i = index;">
+      <ion-item >
+
+        <img src="../../{{eachItem.FImageAddress}}" style="height: 50px; width: 80px">
+        <ion-label padding (click)="editMenuItem(eachItem)">
+          <h2 text-wrap>{{eachItem.Name}}</h2>
+          <p wrap="soft">
+            {{eachItem.Ingredients}}
+          </p>
+          </ion-label>
+          <ion-icon name="create" (click)="editMenuItem(eachItem)"></ion-icon>
+            &nbsp;
+          <ion-icon name="trash" (click)="deleteItem(eachItem)"></ion-icon>
+
+          <span slot="end">&#8377; {{eachItem.Rate}}/- &nbsp;
+          </span>
+      </ion-item>
+        
+    </ion-list>
+    
+  </div>
+  
+    
+
+
+ <ion-fab vertical="bottom" slot="fixed" (click)="goToAddMenuItem()" *ngIf="!addItemOn">
+    <ion-fab-button>
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
+</ion-content>
+
+

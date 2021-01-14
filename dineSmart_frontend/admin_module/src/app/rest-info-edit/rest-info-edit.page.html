@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-title padding wrap="soft">Edit Restaurant Details</ion-title>
+      <ion-button color="primary" fill="solid" shape="round" slot="start" (click)="goToHome()">
+          <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-item padding>
+    <ion-label text-wrap>
+      Name: &nbsp;&nbsp;
+    </ion-label>
+    <ion-textarea type="text" placeholder="{{name}}" wrap="soft" [(ngModel)]="newData.newName">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-item padding>
+      <ion-label text-wrap>
+        Address: &nbsp;&nbsp;
+      </ion-label>
+      <ion-textarea type="text" placeholder="{{address}}" wrap="soft" [(ngModel)]="newData.newAddress">
+      </ion-textarea>
+    </ion-item>
+
+  <ion-item padding>
+        <ion-label text-wrap>
+          Cuisine: &nbsp;&nbsp;
+        </ion-label>
+        <ion-textarea type="text" placeholder="{{cuisine}}" wrap="soft" [(ngModel)]="newData.newCuisine">
+        </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label text-wrap>
+            Image: &nbsp;&nbsp;
+          </ion-label>
+      <ion-img src="data:image/jpeg;base64,{{img}}" padding>
+      </ion-img>
+      <ion-fab >
+          <ion-fab-button>
+            <ion-icon name="create" (click)="loadImage()"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+    </ion-item>
+
+    <ion-button expand="block" (click)="saveChanges()" shape="round" color="success">Save Changes</ion-button>
+    <ion-button expand="block" (click)="deleteRestaurant()" shape="round" color="danger">Delete Restaurant</ion-button>
+
+
+</ion-content>

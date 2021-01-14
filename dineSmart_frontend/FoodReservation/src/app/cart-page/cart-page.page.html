@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title padding>
+      CART
+    </ion-title>
+    <ion-title padding> TOTAL COST - &#8377;{{ total }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list *ngFor="let eachRest of cart; let i = index" class="accordion-list" lines="none" detail="false" no-padding>
+    <ion-item>
+      <img src="../../{{eachRest.Photo}}" style="height: 50px; width: 80px" />
+      <ion-label padding>
+        <h2 text-wrap>{{ eachRest.Name }}</h2>
+      </ion-label>
+
+      &nbsp;
+      {{ eachRest.qty }}
+      &nbsp;
+      <span slot="end">&#8377; {{ eachRest.price }}/- &nbsp; </span>
+
+      <!-- <h3 slot="end" >{{eachRest.Rate}}/-</h3> -->
+    </ion-item>
+    <div *ngIf="eachRest.children && eachRest.open">
+      Test
+    </div>
+  </ion-list>
+
+  <ion-item *ngIf="enableNote">
+    <ion-input type="text" placeholder="Note to chef" [(ngModel)]="noteToChef" style="border:solid 1px black; border-radius: 10px; "></ion-input>
+    <ion-button shape="round" (click)="confirm()" color="success">
+      Send Note to chef
+    </ion-button>
+  </ion-item>
+  
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="order()">
+     PLACE ORDER
+    </ion-fab-button>
+  </ion-fab > -->
+
+
+
+  <div *ngIf="showCounter" class="ion-text-center">
+    <p>Thank you for placing your order!</p>
+    <p>Your Order ID: {{ orderid.id }}</p>
+    <h2>Your order will be ready in:</h2>
+
+    <h2>{{ countDown | async | formatTime }}</h2>
+    <ion-card (click)="onClick()">
+      <ion-card-header>
+        <ion-card-subtitle></ion-card-subtitle>
+        <ion-card-title color="primary">Proceed to Payment</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <strong>
+          Bill: {{total}}
+        </strong>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  
+
+</ion-content>
+
+
+<ion-footer *ngIf="isLoggedIn && showOrderButton">
+  <ion-button expand="full" shape="round" (click)="presentAlertConfirm()" color="success">
+    Place Order
+  </ion-button>
+</ion-footer>
+
+<ion-footer *ngIf="!isLoggedIn && showOrderButton">
+  <ion-button expand="full" shape="round" (click)="promptLogin()" color="medium">
+    Place Order
+  </ion-button>
+</ion-footer>

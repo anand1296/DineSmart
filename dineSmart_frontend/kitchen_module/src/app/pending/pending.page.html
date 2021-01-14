@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-card>
+    <ion-toolbar>
+      <ion-card-title>PENDING ORDERS</ion-card-title>
+    </ion-toolbar>
+  </ion-card>
+</ion-header>
+<ion-content>
+  <div scrollx=true direction="x">
+    <ion-col class="fixed">
+      <ion-card *ngFor="let eachRest of restData">
+        <ion-card-title padding>ORDER NO:{{eachRest.id}}
+          <ion-text color="dark">
+            <h5> CUSTOMER ID: {{eachRest.cust}} </h5>
+            <h5> ITEM: {{eachRest.name}} </h5>
+            <h5>Note: {{eachRest.note}} </h5>
+            <h5>QUANTITY: {{eachRest.qty}} </h5>
+
+          </ion-text>
+        </ion-card-title>
+
+        <ion-button shape="round" color="success" (click)="accept(eachRest.id)">ACCEPT ORDER {{eachRest.id}}
+        </ion-button>
+      </ion-card>
+
+    </ion-col>
+  </div>
+
+</ion-content>

@@ -1,0 +1,82 @@
+<ion-header >
+  <ion-toolbar >
+    
+    <ion-title padding text-wrap>     
+              <ion-icon name="restaurant"></ion-icon>{{name}}
+            <h4 no-padding>{{address}}</h4>   
+    </ion-title>
+    
+    
+  </ion-toolbar>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="gotoRestEdit()">
+    <ion-fab-button>
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-header>
+
+<ion-content *ngIf="isLoggedIn">
+  <ion-img *ngIf="RestaurantData" src="../../{{RestaurantData[0].RImgAddress}}"></ion-img>
+
+    <div class="ratingBar">
+      <h3>
+        &nbsp;
+        <ion-icon name="create" (click)="viewReviews()"></ion-icon>
+        &nbsp;
+          <u (click)="viewReviews()">User Ratings and Reviews:</u> &nbsp; {{rating}}/5
+        <ion-icon name="star" ></ion-icon> 
+      </h3>
+    </div>
+
+
+  <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <ion-button expand="full" color="tertiary" (click)="goToMenu()">
+              <ion-icon slot="start" name="restaurant"></ion-icon>
+              Edit Menu
+            
+          </ion-button>
+        </ion-col>
+        <ion-col col-6>
+            <ion-button expand="full" color="primary" >
+                <ion-icon slot="end" name="pie"></ion-icon>
+                Edit Table Layout
+              
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <div >
+      <h1 padding>Recommended</h1>
+      <ion-slides [options]="sliderOpts">
+        <ion-slide *ngFor="let eachItem of recommendedItems; let i = index">
+          <ion-card >
+            <ion-card-title padding>{{eachItem.Name}}</ion-card-title>
+            <img src="../../{{eachItem.FImageAddress}}" >
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  
+    <div >
+      <h1 padding>Chef's Special</h1>
+      <ion-slides [options]="sliderOpts">
+        <ion-slide *ngFor="let eachItem of specialItems; let i = index">
+          <ion-card >
+              <ion-card-title padding>{{eachItem.Name}}</ion-card-title>
+            <img src="../../{{eachItem.FImageAddress}}" >
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+
+
+
+</ion-content>
+
